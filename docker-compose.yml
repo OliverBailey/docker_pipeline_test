@@ -13,7 +13,7 @@ services:
     php:
         image: "php:${PHP_VERSION}"
         build:
-            context: ./.docker
+            context: ./
             dockerfile: Dockerfile
         user: "1000:1000"
         working_dir: /var/www/hello_world
