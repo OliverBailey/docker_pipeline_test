@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+    nginx:
+        image: "nginx:${NGINX_VERSION}"
+        ports: 
+            - "80:80"
+        volumes:
+            - ./.docker/nginx/conf.d:/etc/nginx/conf.d
+            - ./code:/var/www/hello_world
+        depends_on:
+            - "php"
+
+    php:
+        image: "php:${PHP_VERSION}"
+        build:
+            context: ./.docker
+            dockerfile: Dockerfile
+        user: "1000:1000"
+        working_dir: /var/www/hello_world
+        volumes:
+            - ./code:/var/www/hello_world
+  
