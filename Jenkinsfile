@@ -15,7 +15,7 @@ pipeline {
         stage('Build') { 
             steps { 
                 script{
-                 app = docker.build("OliverBailey/docker_pipeline_test")
+                 app = docker.build("docker_pipeline_test")
                 }
             }
         }
